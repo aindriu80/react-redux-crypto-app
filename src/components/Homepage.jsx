@@ -3,13 +3,16 @@ import React from 'react'
 import { Typography, Row, Col, Statistic } from 'antd'
 // import { Link } from 'react-router-dom'
 
-import { useGetCryptosQuery } from '../services/cryptoAPI'
+import { useGetCryptosQuery } from '../services/cryptoApi';
 
 const { Title } = Typography
 
 const Homepage = () => {
-  const { data, isFetching } = useGetCryptosQuery()
-  console.log(data)
+  const { data, isFetching } = useGetCryptosQuery(10)
+  const globalStats = data?.data?.stats
+
+  if (isFetching) return 'Loader ...'
+
   return (
     <>
       <Title level={2} className="heading">
@@ -17,7 +20,7 @@ const Homepage = () => {
       </Title>
       <Row>
         <Col span={12}>
-          <Statistic title="Total Cryptocurrencies" value="5" />
+          <Statistic title="Total Cryptocurrencies" value={globalStats.total} />
         </Col>
         <Col span={12}>
           <Statistic title="Total Exchanges" value="5" />
