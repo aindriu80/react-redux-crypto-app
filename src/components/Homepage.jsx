@@ -17,35 +17,36 @@ const Homepage = () => {
   if (isFetching) return <Loader />
   console.log(data)
 
+  
   return (
     <>
       <Title level={2} className="heading">
         Global Crypto Statistics
       </Title>
-      <Row>
+      <Row gutter={[32, 32]}>
         <Col span={12}>
           <Statistic title="Total Cryptocurrencies" value={globalStats.total} />
         </Col>
         <Col span={12}>
           <Statistic
             title="Total Exchanges"
-            // value={millify(globalStats.totalExchanges)}
+            value={millify(globalStats.totalExchanges)}
           />
         </Col>
         <Col span={12}>
           <Statistic
             title="Total Market Cap:"
-            // value={`$${millify(globalStats.totalMarketCap)}`}
+            value={`$${millify(globalStats.totalMarketCap)}`}
           />
         </Col>
         <Col span={12}>
           <Statistic
             title="Total 24h Volume"
-            // value={`$${millify(globalStats.total24hVolume)}`}
+            value={`$${millify(globalStats.total24hVolume)}`}
           />
         </Col>
         <Col span={12}>
-          {/* <Statistic title="Total Markets" value={globalStats.totalMarkets} /> */}
+          <Statistic title="Total Markets" value={globalStats.totalMarkets} />
         </Col>
       </Row>
       <div className="home-heading-container">
