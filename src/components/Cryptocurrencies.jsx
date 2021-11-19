@@ -21,7 +21,6 @@ const Cryptocurrencies = ({ simplified }) => {
   }, [cryptosList, searchTerm])
 
   if (isFetching) return 'is loading.....'
-
   return (
     <>
       {!simplified && (
