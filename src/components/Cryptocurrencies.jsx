@@ -13,8 +13,8 @@ const Cryptocurrencies = ({ simplified }) => {
 
   useEffect(() => {
     setCryptos(cryptosList?.data?.coins)
-    const filteredData = cryptosList?.data?.coins.filter((coin) =>
-      coin.name.toLowerCase().includes(searchTerm)
+    const filteredData = cryptosList?.data?.coins.filter((item) =>
+      item.name.toLowerCase().includes(searchTerm)
     )
 
     setCryptos(filteredData)
@@ -27,7 +27,7 @@ const Cryptocurrencies = ({ simplified }) => {
         <div className="search-crypto">
           <Input
             placeholder="Search Cryptocurrency"
-            onChange={(e) => setSearchTerm(e.target.value)}
+            onChange={(e) => setSearchTerm(e.target.value.toLowerCase())}
           />
         </div>
       )}
